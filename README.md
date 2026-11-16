@@ -1,6 +1,8 @@
 # 1stPlayer® Thunderstorm TS4 360-bk — Native Linux Display Driver
 
-**[English](README.md)** | **[Română](README.ro.md)** | **[USB HID & IPC Protocol](PROTOCOL.md)**
+**[English](README.md)** | **[🇷🇴 Română (Ghid Complet)](README.ro.md)** | **[USB HID & IPC Protocol](PROTOCOL.md)**
+
+> 🇷🇴 **Folosești Linux în România?** Vezi secțiunea **[Instalare rapidă în română](#-pentru-utilizatorii-din-românia-română)** mai jos sau ghidul complet în **[README.ro.md](README.ro.md)**.
 
 A clean-room, native Linux C daemon, CLI controller (`stmctl`), `udev` ruleset, and `systemd` service for the **1stPlayer® Thunderstorm TS4 360-bk** IPS USB display (`0145:1001` `HWCX USB Display`) and compatible XKW-family AIO/cooler displays.
 
@@ -129,3 +131,30 @@ sudo systemctl reload system-temperature-monitoring
 ```bash
 sudo ./uninstall.sh
 ```
+
+---
+
+## 🇷🇴 Pentru utilizatorii din România (Română)
+
+Driver nativ pentru Linux (daemon C + `systemd` + `udev` + `stmctl`) pentru ecranul IPS al cooler-ului **1stPlayer® Thunderstorm TS4 360-bk** (`0145:1001` `HWCX USB Display`), construit prin reverse engineering 1:1 după driverul oficial de Windows (`SystemTemperatureMonitoring V2.6`), fără Wine sau Mono.
+
+### Instalare rapidă (din Releases)
+1. Descarcă `1stplayer-ts4-linux-v1.0.0.tar.gz` din pagina **[Releases](../../releases)**.
+2. Dezarhivează și rulează installer-ul:
+```bash
+tar -xzf 1stplayer-ts4-linux-v1.0.0.tar.gz
+cd 1stplayer-ts4-linux-v1.0.0
+sudo ./install.sh
+```
+
+### Comenzi utile
+```bash
+stmctl status      # Verifică ecranul USB și serviciul systemd
+stmctl sensors     # Afișează toți senzorii (CPU, GPU, RAM, Disk, Ventilator)
+stmctl probe       # Testează handshake-ul USB 0x01
+stmctl mode 0 0    # Schimbă modul de afișare (dacă este necesar)
+```
+
+> **Important despre ARGB:** Cablul USB (`0145:1001`) controlează **doar ecranul IPS**. LED-urile ARGB se conectează pe header-ul de 5V 3-pin al plăcii de bază și pot fi controlate pe Linux cu **OpenRGB**.
+
+Pentru toate detaliile și configurarea avansată în limba română, vezi **[README.ro.md](README.ro.md)**.
