@@ -1,0 +1,25 @@
+# 1stPlayer Thunderstorm TS4 / HWCX USB Display and XKW-family IPS displays
+# Grants desktop user access (uaccess) and disables USB autosuspend so the display never blanks out.
+
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0145", ATTRS{idProduct}=="1001", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0145", ATTRS{idProduct}=="1005", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="12b7", ATTRS{idProduct}=="1001", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1c57", ATTRS{idProduct}=="3ed1", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1c57", ATTRS{idProduct}=="4b8f", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1c57", ATTRS{idProduct}=="3a7f", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1c57", ATTRS{idProduct}=="3ed2", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1c57", ATTRS{idProduct}=="3ed6", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c65", ATTRS{idProduct}=="1001", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="2c65", ATTRS{idProduct}=="1000", MODE="0660", TAG+="uaccess"
+
+# Disable USB autosuspend for HWCX / XKW USB Displays
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0145", ATTR{idProduct}=="1001", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="0145", ATTR{idProduct}=="1005", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="12b7", ATTR{idProduct}=="1001", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1c57", ATTR{idProduct}=="3ed1", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1c57", ATTR{idProduct}=="4b8f", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1c57", ATTR{idProduct}=="3a7f", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1c57", ATTR{idProduct}=="3ed2", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="1c57", ATTR{idProduct}=="3ed6", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="2c65", ATTR{idProduct}=="1001", TEST=="power/control", ATTR{power/control}="on"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="2c65", ATTR{idProduct}=="1000", TEST=="power/control", ATTR{power/control}="on"

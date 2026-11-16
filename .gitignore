@@ -1,0 +1,10 @@
+build/
+dist/
+re_work/
+systemtemperaturemonitoring-english-v2-6/
+*.zip
+*.exe
+*.tar.gz
+*.o
+*.log
+.DS_Store

@@ -1,0 +1,17 @@
+[Unit]
+Description=1stPlayer TS4 / HWCX USB Display Native Telemetry Driver (SystemTemperatureMonitoring)
+After=local-fs.target systemd-udevd.service
+Wants=systemd-udevd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/system-temperature-monitoringd --config /etc/system-temperature-monitoring/config.ini
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+RestartSec=2
+Nice=-5
+NoNewPrivileges=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target
